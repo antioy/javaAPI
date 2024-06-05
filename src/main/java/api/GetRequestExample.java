@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 public class GetRequestExample {
 
     private static final String URL = "https://dummy.restapiexample.com/api/v1/employees";
+    private static Integer responseCode;
+    public static String responseString;
 
     public static void main(String[] args) {
         try {
@@ -21,7 +23,10 @@ public class GetRequestExample {
             HttpResponse httpResponse = httpClient.execute(httpGet);
 
             // Print the status code
-            System.out.println("Response Status: " + httpResponse.getStatusLine().getStatusCode());
+           //  System.out.println("Response Status: " + httpResponse.getStatusLine().getStatusCode());
+           //  Assign response code
+            responseCode = httpResponse.getStatusLine().getStatusCode();
+
 
             // Print the response body
             BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent()));
@@ -32,11 +37,27 @@ public class GetRequestExample {
             }
             reader.close();
 
-            System.out.println("Response Body:");
-            System.out.println(responseContent.toString());
+          //  System.out.println("Response Body:");
+          //  System.out.println(responseContent.toString());
+          // Assign response content
+            responseString = responseContent.toString();
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
+
         }
     }
+
+
+        public static Integer getResponseCode() {
+           return responseCode;
+
+        }
+
+        public static String getResponseString() {
+           return responseString;
+        }
+
 }

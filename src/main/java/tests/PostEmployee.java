@@ -17,6 +17,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class PostEmployee {
+    public static HttpResponse createEmployee() {
+    }
+
     @Test
     public void testCreateEmployee() throws IOException {
         HttpClient httpClient = HttpClients.createDefault();

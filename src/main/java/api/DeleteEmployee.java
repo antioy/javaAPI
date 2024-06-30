@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 public class DeleteEmployee {
     private static final String DELETE_EMPLOYEE_URL = "https://dummy.restapiexample.com/api/v1/delete/2";
 
-    public static void main(String[] args) {
+    public static HttpResponse deleteEmployee() throws IOException {
         try {
             HttpClient httpClient = HttpClients.createDefault();
             HttpDelete httpDelete = new HttpDelete(DELETE_EMPLOYEE_URL);

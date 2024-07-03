@@ -20,7 +20,7 @@ public class UpdateRequests {
     @Test
     public void testUpdateEmployee() throws IOException {
         HttpClient httpClient = HttpClients.createDefault();
-        HttpPut httpPut = new HttpPut(PostRequests);
+        HttpPut httpPut = new HttpPut(UPDATE_EMPLOYEE_URL+ CreateEmployee.getId());
         httpPut.setHeader("Content-type", "application/json");
 
 

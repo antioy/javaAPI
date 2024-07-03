@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 public class PutRequest  {
 
 
-    private static final String UPDATE_EMPLOYEE_URL = "https://dummy.restapiexample.com/api/v1/update/21";
+    public static final String UPDATE_EMPLOYEE_URL = "https://dummy.restapiexample.com/api/v1/update/21";
 
     public static void main(String[] args) {
         try {

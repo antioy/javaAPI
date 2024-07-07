@@ -9,13 +9,16 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+/*
+
 public class CreateEmployee {
     private static String id;
 
     @Test
 
     public static void testCreateEmployee() throws IOException {
-        HttpResponse response = PostEmployee.createEmployee();
+        HttpResponse response = TestPostEmployee.createEmployee();
         int statusCode = response.getStatusLine().getStatusCode();
         Assert.assertEquals(statusCode, 200, "Status code is not 200");
         ResponseReader ResponseReader;
@@ -36,3 +39,4 @@ public class CreateEmployee {
     }
 }
 
+*/

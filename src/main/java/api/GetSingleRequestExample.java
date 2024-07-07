@@ -11,8 +11,8 @@ import java.io.InputStreamReader;
 public class GetSingleRequestExample {
 
     private static String viewSingleEmp = "https://dummy.restapiexample.com/api/v1/employee/";
-    public static HttpResponse getEmployee() throws IOException {
-        HttpGet getEmployee = new HttpGet(viewSingleEmp);
+    public static HttpResponse getEmployee(Integer id) throws IOException {
+        HttpGet getEmployee = new HttpGet(viewSingleEmp+id);
         getEmployee.setHeader("Content-type", "application/json");
         HttpClient httpClient = HttpClients.createDefault();
         HttpResponse httpResponse = httpClient.execute(getEmployee);

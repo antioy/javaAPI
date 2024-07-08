@@ -2,39 +2,25 @@ package api;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
+
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+
+import static junit.runner.Version.id;
+
 public class DeleteEmployee {
-    public static final String DELETE_EMPLOYEE_URL = "https://dummy.restapiexample.com/api/v1/delete/2";
+    public static final String deleteURL = "https://dummy.restapiexample.com/api/v1/delete/";
 
-    public static void   deleteEmployee() throws IOException {
-        try {
-            HttpClient httpClient = HttpClients.createDefault();
-            HttpDelete httpDelete = new HttpDelete(DELETE_EMPLOYEE_URL);
-            httpDelete.setHeader("Content-type", "application/json");
-
-            HttpResponse httpResponse = httpClient.execute(httpDelete);
-
-            // Print the status code
-            System.out.println("Response Status: " + httpResponse.getStatusLine().getStatusCode());
-
-            // Print the response body
-            BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent()));
-            String line;
-            StringBuilder responseContent = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                responseContent.append(line).append("\n");
-            }
-            reader.close();
-
-            System.out.println("Response Body:");
-            System.out.println(responseContent.toString());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static HttpResponse deleteEmployee(Integer id) throws IOException {
+        HttpDelete deleteEmployee = new HttpDelete(deleteURL+ id());
+        deleteEmployee.setHeader("Content-type", "application/json");
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpResponse httpResponse = httpClient.execute(deleteEmployee);
+        return httpResponse;
     }
 }
+

@@ -10,15 +10,17 @@ import java.io.IOException;
 
 public class GetEmployee {
 
+    Integer id = 1;
+
     @Test
     public void testGetEmployees() {
         try {
             // Call the method to get the employees
-            HttpResponse response = GetSingleRequestExample.getEmployee();
+            HttpResponse response = GetSingleRequestExample.getEmployee(id);
 
             // Validate the status code
             int statusCode = response.getStatusLine().getStatusCode();
-            Assert.assertEquals(200, statusCode, "Expected status code 200");
+            Assert.assertEquals(statusCode, 200, "Expected status code 200");
 
             // Read the response body
             String responseBody = ResponseReader.convertStreamToString(response.getEntity().getContent());

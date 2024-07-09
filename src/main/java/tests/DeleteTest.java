@@ -26,8 +26,8 @@ public class DeleteTest {
 
             // Read the response body
             String responseBody = ResponseReader.convertStreamToString(response.getEntity().getContent());
-            System.out.println("Response Body:");
-            System.out.println(responseBody);
+         //   System.out.println("Response Body:");
+         //   System.out.println(responseBody);
 
             // Validate the response body (adjust the check as necessary based on API response format)
             Assert.assertTrue(responseBody.contains("\"status\":\"success\""),

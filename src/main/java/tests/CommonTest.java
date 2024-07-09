@@ -82,7 +82,7 @@ public class CommonTest {
         Assert.assertTrue(responseBody.contains(salary.toString()), "ERROR: Response body does not contain the expected salary of 5000!");
         Assert.assertTrue(responseBody.contains(age.toString()), "ERROR: Response body does not contain the expected age 30!");
     }
-}
+
 
 
     @Test
@@ -107,4 +107,36 @@ public class CommonTest {
         Assert.assertTrue(responseBody.contains(salary.toString()), "ERROR: Response body does not contain the expected salary of 5000!");
         Assert.assertTrue(responseBody.contains(age.toString()), "ERROR: Response body does not contain the expected age 30!");
     }
+
+      @Test
+      public void testDeleteEmployee() {
+          try {
+              // Call the method to get the employees
+              HttpResponse deleteResponse = api.DeleteEmployee.deleteEmployee(2);
+
+              // Call the method to get the employees
+              HttpResponse getResponse = GetSingleRequestExample.getEmployee(id);
+
+              // Call the method to get the employee
+              HttpResponse response = GetSingleRequestExample.getEmployee(id);
+
+              // Validate the status code
+              int statusCode = response.getStatusLine().getStatusCode();
+              Assert.assertEquals(statusCode, 200, "Expected status code 200");
+
+              // Read the response body
+              String responseBody = ResponseReader.convertStreamToString(response.getEntity().getContent());
+              System.out.println("Response Body:");
+              System.out.println(responseBody);
+
+              // Validate the response body (adjust the check as necessary based on API response format)
+              Assert.assertTrue(responseBody.contains("\"status\":\"success\""),
+                      "Response does not indicate success");
+          } catch (IOException e) {
+              e.printStackTrace();
+              Assert.fail("IOException occurred: " + e.getMessage());
+
+          }
+      }
 }
+
